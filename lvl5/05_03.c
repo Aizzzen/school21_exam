@@ -18,20 +18,19 @@ int main() {
             } else {
                 pointer_to_array[i] = tmp;
                 kArrayLength += 1;
-                pointer_to_array = (int *)realloc(pointer_to_array, kArrayLength * sizeof(int));
+                pointer_to_array = (int *)realloc(pointer_to_array, (kArrayLength) * sizeof(int));
             }
         }
         counter_for_output = kArrayLength;
 
-        for(int i = 0; i < kArrayLength; i++) {
-            printf("%d", pointer_to_array[i] * counter_for_output);
-            counter_for_output--;
-            if(i < kArrayLength - 1) {
-                printf(" ");
-            }
+        for(int i = 0; i < (kArrayLength  / 2); i++) {
+            printf("%d ", pointer_to_array[i]);
+            printf("%d ", pointer_to_array[counter_for_output - i - 1]);
+        }
+        if (kArrayLength % 2 != 0) {
+            printf("%d", pointer_to_array[kArrayLength / 2]);
         }
     }
     free(pointer_to_array);
-    
     return 0;
 }
